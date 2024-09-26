@@ -1,0 +1,81 @@
+{
+    "bebidas": [
+        {
+            "nombre": "Agua Mineral",
+            "precio": 20,
+            "categoria": "Bebida",
+            "calorias": 0,
+            "disponibilidad": "Disponible"
+        },
+        {
+            "nombre": "Refresco de Cola",
+            "precio": 25,
+            "categoria": "Bebida Gaseosa",
+            "calorias": 150,
+            "disponibilidad": "Disponible"
+        },
+        {
+            "nombre": "Jugo de Naranja",
+            "precio": 30,
+            "categoria": "Bebida Natural",
+            "calorias": 100,
+            "disponibilidad": "No disponible"
+        },
+        {
+            "nombre": "Cerveza",
+            "precio": 40,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 200,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Agua",
+            "precio": 10,
+            "categoria": "Bebida Natural",
+            "calorias": 50,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Piña Colada",
+            "precio": 75,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 200,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Paloma",
+            "precio": 60,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 100,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Whiskey",
+            "precio": 120,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 100,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Vino",
+            "precio": 320,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 150,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Azulito",
+            "precio": 95,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 200,
+            "disponibilidad": "Disponible"
+        },
+		{
+            "nombre": "Mojito",
+            "precio": 40,
+            "categoria": "Bebida Alcoholica",
+            "calorias": 200,
+            "disponibilidad": "Disponible"
+        }
+    ]
+}

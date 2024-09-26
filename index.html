@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenido a la Cafetería</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #fff;
+            border: 2px solid #d4a373;
+            border-radius: 8px;
+        }
+        h1 {
+            background-color: #7d4e2d;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .button {
+            background-color: #d4a373;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+            margin-right: 10px;
+        }
+        .button:hover {
+            background-color: #bf743e;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Bienvenido a la Cafetería</h1>
+        <p>Elige qué menú deseas ver:</p>
+        
+        <!-- Botón para abrir el menú de bebidas -->
+        <button class="button" onclick="window.location.href='bebidas.json'">Ver menú de bebidas</button>
+        
+        <!-- Botón para abrir el menú de alimentos -->
+        <button class="button" onclick="window.location.href='alimentos.html'">Ver menú de alimentos</button>
+        
+        <footer style="margin-top: 20px;">
+            Elaborado por: Josue Emmanuel Resendiz Gonzalez y Vanessa Soto Hernandez
+        </footer>
+    </div>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menú de Alimentos</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            text-align: center;
+        }
+        .container {
+            margin: 20px auto;
+            padding: 20px;
+            width: 80%;
+            background-color: #fff;
+            border: 2px solid #d4a373;
+            border-radius: 8px;
+        }
+        h1 {
+            background-color: #7d4e2d;
+            color: #fff;
+            padding: 15px;
+            border-radius: 8px;
+        }
+        .button {
+            background-color: #d4a373;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .button:hover {
+            background-color: #bf743e;
+        }
+        table {
+            margin-top: 20px;
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #d4a373;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #7d4e2d;
+            color: white;
+        }
+    </style>
+    <script>
+        function mostrarAlimentos() {
+            fetch('alimentos.xml') // Asegúrate de que el archivo XML está en la misma carpeta
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Error en la carga del archivo XML: " + response.statusText);
+                    }
+                    return response.text();
+                })
+                .then(data => {
+                    const parser = new DOMParser();
+                    const xmlDoc = parser.parseFromString(data, "text/xml");
+                    const errores = xmlDoc.getElementsByTagName("parsererror");
+                    if (errores.length > 0) {
+                        throw new Error("Error al parsear el XML: " + errores[0].textContent);
+                    }
+                    const alimentos = xmlDoc.getElementsByTagName("alimento");
+                    const tablaAlimentos = document.getElementById("tabla-alimentos");
+                    tablaAlimentos.innerHTML = ''; // Limpiar contenido anterior
+                    
+                    // Agregar encabezados a la tabla
+                    const encabezados = `
+                        <tr>
+                            <th>Nombre</th>
+     						<th>Tipo</th>
+                            <th>Precio</th>
+                            <th>Calorías</th>
+                            <th>Disponibilidad</th>
+                        </tr>`;
+                    tablaAlimentos.innerHTML += encabezados;
+
+                    for (let i = 0; i < alimentos.length; i++) {
+                        const nombre = alimentos[i].getElementsByTagName("nombre")[0].textContent;
+                        const precio = alimentos[i].getElementsByTagName("tipo")[0].textContent;
+                        const categoria = alimentos[i].getElementsByTagName("precio")[0].textContent;
+                        const calorias = alimentos[i].getElementsByTagName("calorias")[0].textContent;
+                        const disponibilidad = alimentos[i].getElementsByTagName("disponibilidad")[0].textContent;
+                        
+                        const fila = `
+                            <tr>
+                                <td>${nombre}</td>
+                                <td>${tipo}</td>
+                                <td>${precio}</td>
+                                <td>${calorias}</td>
+                                <td>${disponibilidad}</td>
+                            </tr>`;
+                        tablaAlimentos.innerHTML += fila;
+                    }
+
+                    // Mostrar la tabla
+                    tablaAlimentos.style.display = "table"; // Cambiar a table para mostrar
+                })
+                .catch(error => {
+                    console.error("Error al cargar los alimentos:", error);
+                });
+        }
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h1>Menú de Alimentos</h1>
+
+        <!-- Botón para cargar y mostrar los alimentos -->
+        <button class="button" onclick="mostrarAlimentos()">Ver Alimentos</button>
+        
+        <table id="tabla-alimentos" style="display: none;">
+            <!-- Los elementos de la tabla se llenarán dinámicamente -->
+        </table>
+        
+        <button class="button" onclick="window.location.href='index.html'">Regresar a la Página Principal</button>
+        
+        <footer style="margin-top: 20px;">
+            Elaborado por: Josue Emmanuel Resendiz Gonzalez y Vanessa Soto Hernandez
+        </footer>
+    </div>
+</body>
+</html>
